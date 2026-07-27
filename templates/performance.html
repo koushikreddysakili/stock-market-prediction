@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Model Performance</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>AI Multi Stock Price Prediction</h1>
+
+</header>
+
+<nav>
+
+<a href="/">Home</a>
+<a href="/predict">Predict</a>
+<a href="/dashboard">Dashboard</a>
+<a href="/performance">Performance</a>
+<a href="/about">About</a>
+
+</nav>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Machine Learning Model Performance</h2>
+
+<table class="result-table">
+
+<tr>
+<th>Algorithm</th>
+<td>Random Forest Regressor</td>
+</tr>
+
+<tr>
+<th>Mean Absolute Error (MAE)</th>
+<td>20.36</td>
+</tr>
+
+<tr>
+<th>Root Mean Squared Error (RMSE)</th>
+<td>56.92</td>
+</tr>
+
+<tr>
+<th>R² Score</th>
+<td>0.9990</td>
+</tr>
+
+<tr>
+<th>Total Features</th>
+<td>69</td>
+</tr>
+
+<tr>
+<th>Companies</th>
+<td>18</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<footer>
+
+AI Multi Stock Price Prediction Project
+
+</footer>
+
+</body>
+
+</html>

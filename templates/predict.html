@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Predict Stock</title>
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+    <h1>AI Multi Stock Price Prediction</h1>
+</header>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/predict">Predict</a>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/performance">Performance</a>
+    <a href="/about">About</a>
+</nav>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>Predict Next Day Stock Price</h2>
+
+        <form method="POST">
+
+            <label><b>Select Company</b></label>
+
+            <br><br>
+
+            <select name="company">
+
+                {% for company in companies %}
+
+                <option value="{{ company }}">
+                    {{ company }}
+                </option>
+
+                {% endfor %}
+
+            </select>
+
+            <br><br>
+
+            <button class="btn" type="submit">
+                Predict
+            </button>
+
+        </form>
+
+        {% if prediction %}
+
+<hr>
+
+<h2>Prediction Result</h2>
+
+<p><strong>Company:</strong> {{ company }}</p>
+
+<p><strong>Stock Symbol:</strong> {{ symbol }}</p>
+
+<p><strong>Latest Closing Price:</strong>
+₹ {{ "%.2f"|format(latest_close) }}</p>
+
+<p><strong>Predicted Price:</strong>
+₹ {{ "%.2f"|format(prediction) }}</p>
+
+<p><strong>Difference:</strong>
+₹ {{ "%.2f"|format(difference) }}</p>
+
+<h3>{{ trend }}</h3>
+
+<p><strong>Company:</strong> {{ company }}</p>
+
+<p><strong>Latest Closing Price:</strong></p>
+<h3>₹ {{ "%.2f"|format(latest_close) }}</h3>
+
+<p><strong>Predicted Next Day Price:</strong></p>
+<h2 style="color:green;">
+    ₹ {{ "%.2f"|format(prediction) }}
+</h2>
+
+<p><strong>Difference:</strong></p>
+<h3>
+    ₹ {{ "%.2f"|format(difference) }}
+</h3>
+
+<h3>{{ trend }}</h3>
+
+<hr>
+
+<h2>Stock Price Chart</h2>
+
+<img
+    src="{{ url_for('static', filename=chart) }}"
+    width="700"
+    alt="Stock Price Chart">
+
+{% endif %}
+
+{% if prediction %}
+
+<hr>
+
+<h2>Recent Stock Data</h2>
+
+<table class="result-table">
+
+<tr>
+    <th>Date</th>
+    <th>Open</th>
+    <th>High</th>
+    <th>Low</th>
+    <th>Close</th>
+</tr>
+
+{% for row in recent_data %}
+
+<tr>
+    <td>{{ row.Date }}</td>
+    <td>{{ "%.2f"|format(row.Open) }}</td>
+    <td>{{ "%.2f"|format(row.High) }}</td>
+    <td>{{ "%.2f"|format(row.Low) }}</td>
+    <td>{{ "%.2f"|format(row.Close) }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endif %}
+
+    </div>
+
+</div>
+
+<footer>
+    AI Multi Stock Price Prediction Project
+</footer>
+
+</body>
+
+</html>

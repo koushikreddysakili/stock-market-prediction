@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>AI Multi Stock Price Prediction</h1>
+
+</header>
+
+<nav>
+
+    <a href="/">Home</a>
+    <a href="/predict">Predict</a>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/performance">Performance</a>
+    <a href="/about">About</a>
+
+</nav>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>EDA Dashboard</h2>
+
+        <p>Data Visualization of Stock Market Dataset</p>
+
+        <hr>
+
+        <h3>Company-wise Average Closing Price</h3>
+
+        <img src="{{ url_for('static', filename='charts/company_avg_close.png') }}"
+            width="700">
+
+        <hr>
+
+        <h3>Trading Volume</h3>
+
+        <img src="{{ url_for('static', filename='charts/trading_volume.png') }}"
+            width="700">
+
+        <hr>
+
+        <h3>Closing Price Distribution</h3>
+
+        <img src="{{ url_for('static', filename='charts/close_distribution.png') }}"
+            width="700">
+
+    </div>
+
+</div>
+
+<footer>
+
+AI Multi Stock Price Prediction Project
+
+</footer>
+
+</body>
+
+</html>

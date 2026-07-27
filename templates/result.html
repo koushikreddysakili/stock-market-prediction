@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Prediction Result</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>AI Multi Stock Price Prediction</h1>
+
+</header>
+
+<nav>
+
+    <a href="/">Home</a>
+
+    <a href="/predict">Predict</a>
+
+    <a href="/about">About</a>
+
+</nav>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>Prediction Result</h2>
+
+        <table class="result-table">
+
+            <tr>
+                <th>Company</th>
+                <td>{{ company }}</td>
+            </tr>
+
+            <tr>
+                <th>Latest Closing Price</th>
+                <td>₹ {{ latest_price }}</td>
+            </tr>
+
+            <tr>
+                <th>Predicted Next Day Price</th>
+                <td>₹ {{ predicted_price }}</td>
+            </tr>
+
+            <tr>
+                <th>Difference</th>
+                <td>₹ {{ difference }}</td>
+            </tr>
+
+            <tr>
+                <th>Market Trend</th>
+                <td>{{ trend }}</td>
+            </tr>
+
+        </table>
+
+        <br>
+
+        <a href="/predict">
+            <button class="btn">Predict Another Stock</button>
+        </a>
+
+    </div>
+
+</div>
+
+<footer>
+
+    <p>© 2026 AI Multi Stock Price Prediction | Developed using Flask & Machine Learning</p>
+
+</footer>
+
+</body>
+
+</html>
